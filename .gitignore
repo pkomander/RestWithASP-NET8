@@ -1,0 +1,55 @@
+﻿# Autosave files
+*~
+
+# build
+[Oo]bj/
+[Bb]in/
+[Pp]ublish/
+packages/
+TestResults/
+.vs/
+node_modules/
+.tmp/
+dist/
+
+# globs
+Makefile.in
+._*
+*.DS_Store
+*.sln.cache
+*.suo
+*.cache
+*.pidb
+*.userprefs
+*.usertasks
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.user
+*.tar.gz
+tarballs/
+test-results/
+Thumbs.db
+
+# Mac bundle stuff
+*.dmg
+*.app
+
+# resharper
+*_Resharper.*
+*.Resharper
+
+# dotCover
+*.dotCover
+
+# Android
+Resource.designer.cs
+*.bak
+/GEOEX.Api/logs
+.idea/
+/GEOEX.BancoDados/configuracoes.json
+/GEOEX.BancoDados/GeoexAudit.txt
+/GEOEX.Api/DatabaseMigration
