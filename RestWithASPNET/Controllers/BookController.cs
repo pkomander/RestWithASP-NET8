@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNET.Domain;
+using RestWithASPNET.DTO.BookDto;
 using RestWithASPNET.Repository.Services.Interface;
 
 namespace RestWithASPNET.Controllers
@@ -50,14 +51,14 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Book book)
+        public async Task<IActionResult> Post([FromBody] CreateBookDto bookDto)
         {
             try
             {
-                if (book == null)
+                if (bookDto == null)
                     return BadRequest();
 
-                var retorno = await _bookService.Create(book);
+                var retorno = await _bookService.Create(bookDto);
                 return Ok(retorno);
             }
             catch (Exception ex)
@@ -66,15 +67,15 @@ namespace RestWithASPNET.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Book book)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update([FromBody] UpdateBookDto bookDto, int id)
         {
             try
             {
-                if (book == null)
+                if (bookDto == null)
                     return BadRequest();
 
-                var retorno = await _bookService.Update(book);
+                var retorno = await _bookService.Update(bookDto, id);
                 return Ok(retorno);
             }
             catch (Exception ex)

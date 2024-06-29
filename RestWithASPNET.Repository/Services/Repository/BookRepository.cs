@@ -1,5 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using RestWithASPNET.Domain;
+using RestWithASPNET.DTO.BookDto;
+using RestWithASPNET.DTO.PersonDto;
 using RestWithASPNET.Repository.Data;
 using RestWithASPNET.Repository.Services.Interface;
 using System;
@@ -14,19 +17,25 @@ namespace RestWithASPNET.Repository.Services.Repository
     {
 
         private readonly Context _context;
-        public BookRepository(Context context)
+        private readonly IGenericService _genericService;
+        private readonly IMapper _mapper;
+
+        public BookRepository(Context context, IMapper mapper, IGenericService genericService)
         {
             _context = context;
+            _mapper = mapper;
+            _genericService = genericService;
         }
 
-        public async Task<Book> Create(Book book)
+        public async Task<ReadBookDto> Create(CreateBookDto bookDto)
         {
             try
             {
+                var book = _mapper.Map<Book>(bookDto);
                 _context.Add(book);
                 await _context.SaveChangesAsync();
 
-                return book;
+                return _mapper.Map<ReadBookDto>(book);
             }
             catch (Exception ex)
             {
@@ -34,13 +43,13 @@ namespace RestWithASPNET.Repository.Services.Repository
             }
         }
 
-        public async Task<Book> FindById(long id)
+        public async Task<ReadBookDto> FindById(long id)
         {
             try
             {
                 var book = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
 
-                return book;
+                return _mapper.Map<ReadBookDto>(book);
             }
             catch (Exception ex)
             {
@@ -48,11 +57,13 @@ namespace RestWithASPNET.Repository.Services.Repository
             }
         }
 
-        public async Task<List<Book>> FindAll()
+        public async Task<List<ReadBookDto>> FindAll()
         {
             try
             {
-                return await _context.Books.ToListAsync();
+                var books = await _context.Books.ToListAsync();
+
+                return _mapper.Map<List<ReadBookDto>>(books);
             }
             catch (Exception ex)
             {
@@ -60,19 +71,21 @@ namespace RestWithASPNET.Repository.Services.Repository
             }
         }
 
-        public async Task<Book> Update(Book book)
+        public async Task<ReadBookDto> Update(UpdateBookDto bookDto, int id)
         {
             try
             {
-                var model = await _context.Books.FirstOrDefaultAsync(x => x.Id == book.Id);
+                var model = await _context.Books.FirstOrDefaultAsync(x => x.Id == id);
 
                 if (model == null)
                     return null;
 
-                _context.Entry(model).CurrentValues.SetValues(book);
-                await _context.SaveChangesAsync();
+                var book = _mapper.Map(bookDto, model);
 
-                return book;
+                _genericService.Update<Book>(book);
+                await _genericService.SaveChangesAsync();
+
+                return _mapper.Map<ReadBookDto>(book);
             }
             catch (Exception ex)
             {
@@ -89,8 +102,8 @@ namespace RestWithASPNET.Repository.Services.Repository
                 if (book == null)
                     return false;
 
-                _context.Books.Remove(book);
-                await _context.SaveChangesAsync();
+                _genericService.Delete<Book>(book);
+                await _genericService.SaveChangesAsync();
 
                 return true;
             }

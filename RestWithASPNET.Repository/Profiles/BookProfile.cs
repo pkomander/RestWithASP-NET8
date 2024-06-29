@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using RestWithASPNET.Domain;
+using RestWithASPNET.DTO.BookDto;
 using RestWithASPNET.DTO.PersonDto;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,9 @@ namespace RestWithASPNET.Repository.Profiles
     {
         public BookProfile()
         {
-            //CreateMap<CreatePersonDto, Person>();
-            //CreateMap<Person, ReadPersonDto>();
-            //CreateMap<UpdatePersonDto, Person>();
+            CreateMap<CreateBookDto, Book>();
+            CreateMap<Book, ReadBookDto>();
+            CreateMap<UpdateBookDto, Book>();
         }
     }
 }
