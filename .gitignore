@@ -44,12 +44,3 @@ Thumbs.db
 
 # dotCover
 *.dotCover
-
-# Android
-Resource.designer.cs
-*.bak
-/GEOEX.Api/logs
-.idea/
-/GEOEX.BancoDados/configuracoes.json
-/GEOEX.BancoDados/GeoexAudit.txt
-/GEOEX.Api/DatabaseMigration
