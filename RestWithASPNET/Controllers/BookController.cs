@@ -7,14 +7,13 @@ namespace RestWithASPNET.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : ControllerBase
+    public class BookController : ControllerBase
     {
+        private readonly IBookService _bookService;
 
-        private readonly IPersonService _personService;
-
-        public PersonController(IPersonService personService)
+        public BookController(IBookService bookService)
         {
-            _personService = personService;
+            _bookService = bookService;
         }
 
         [HttpGet("{id}")]
@@ -22,11 +21,11 @@ namespace RestWithASPNET.Controllers
         {
             try
             {
-                var retorno = await _personService.FindById(id);
-                
+                var retorno = await _bookService.FindById(id);
+
                 if (retorno == null)
                 {
-                    return NotFound("O Person não foi encontrado!");
+                    return NotFound("O Book não foi encontrado!");
                 }
 
                 return Ok(retorno);
@@ -42,7 +41,7 @@ namespace RestWithASPNET.Controllers
         {
             try
             {
-                return Ok(await _personService.FindAll());
+                return Ok(await _bookService.FindAll());
             }
             catch (Exception ex)
             {
@@ -51,14 +50,14 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Person person)
+        public async Task<IActionResult> Post([FromBody] Book book)
         {
             try
             {
-                if (person == null)
+                if (book == null)
                     return BadRequest();
 
-                var retorno = await _personService.Create(person);
+                var retorno = await _bookService.Create(book);
                 return Ok(retorno);
             }
             catch (Exception ex)
@@ -68,14 +67,14 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Person person)
+        public async Task<IActionResult> Update([FromBody] Book book)
         {
             try
             {
-                if (person == null)
+                if (book == null)
                     return BadRequest();
 
-                var retorno = await _personService.Update(person);
+                var retorno = await _bookService.Update(book);
                 return Ok(retorno);
             }
             catch (Exception ex)
@@ -89,12 +88,12 @@ namespace RestWithASPNET.Controllers
         {
             try
             {
-                var retorno = await _personService.Delete(id);
+                var retorno = await _bookService.Delete(id);
 
                 if (retorno == false)
-                    return BadRequest("O Person não foi encontrado!");
+                    return BadRequest("O Book não foi encontrado!");
 
-                return Ok("Person deletado com sucesso!");
+                return Ok("Book deletado com sucesso!");
             }
             catch (Exception ex)
             {
