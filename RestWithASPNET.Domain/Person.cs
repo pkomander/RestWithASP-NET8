@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace RestWithASPNET.Model
+namespace RestWithASPNET.Domain
 {
     [Table("person")]
     public class Person

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RestWithASPNET.Model;
-using RestWithASPNET.Services.Interface;
+using RestWithASPNET.Domain;
+using RestWithASPNET.Repository.Services.Interface;
 
 namespace RestWithASPNET.Controllers
 {

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using RestWithASPNET.Data;
-using RestWithASPNET.Model;
-using RestWithASPNET.Services.Interface;
+using RestWithASPNET.Domain;
+using RestWithASPNET.Repository.Data;
+using RestWithASPNET.Repository.Services.Interface;
 
-namespace RestWithASPNET.Services.Repository
+namespace RestWithASPNET.Repository.Services.Repository
 {
     public class PersonRepository : IPersonService
     {

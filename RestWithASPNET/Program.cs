@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using RestWithASPNET.Data;
-using RestWithASPNET.Services.Interface;
-using RestWithASPNET.Services.Repository;
+using RestWithASPNET.Repository.Data;
+using RestWithASPNET.Repository.Services.Interface;
+using RestWithASPNET.Repository.Services.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

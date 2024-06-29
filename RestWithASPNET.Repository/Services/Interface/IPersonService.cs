@@ -1,6 +1,6 @@
-﻿using RestWithASPNET.Model;
+﻿using RestWithASPNET.Domain;
 
-namespace RestWithASPNET.Services.Interface
+namespace RestWithASPNET.Repository.Services.Interface
 {
     public interface IPersonService
     {
