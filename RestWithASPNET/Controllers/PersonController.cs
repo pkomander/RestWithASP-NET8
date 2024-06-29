@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNET.Domain;
+using RestWithASPNET.DTO.PersonDto;
 using RestWithASPNET.Repository.Services.Interface;
 
 namespace RestWithASPNET.Controllers
@@ -51,14 +52,14 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Person person)
+        public async Task<IActionResult> Post([FromBody] CreatePersonDto personDto)
         {
             try
             {
-                if (person == null)
-                    return BadRequest();
+                if (personDto == null)
+                    return BadRequest("Nenhum item foi passado na requisição!");
 
-                var retorno = await _personService.Create(person);
+                var retorno = await _personService.Create(personDto);
                 return Ok(retorno);
             }
             catch (Exception ex)
@@ -67,15 +68,15 @@ namespace RestWithASPNET.Controllers
             }
         }
 
-        [HttpPut]
-        public async Task<IActionResult> Update([FromBody] Person person)
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update([FromBody] UpdatePersonDto personDto, int id)
         {
             try
             {
-                if (person == null)
-                    return BadRequest();
+                if (personDto == null)
+                    return BadRequest("Nenhum item foi passado na requisição!");
 
-                var retorno = await _personService.Update(person);
+                var retorno = await _personService.Update(personDto, id);
                 return Ok(retorno);
             }
             catch (Exception ex)

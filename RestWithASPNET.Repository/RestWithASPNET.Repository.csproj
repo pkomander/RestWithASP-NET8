@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RestWithASPNET.Domain\RestWithASPNET.Domain.csproj" />
+    <ProjectReference Include="..\RestWithASPNET.DTO\RestWithASPNET.DTO.csproj" />
   </ItemGroup>
 
 	<ItemGroup>

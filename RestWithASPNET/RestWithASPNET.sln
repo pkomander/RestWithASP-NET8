@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.Repository",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.Domain", "..\RestWithASPNET.Domain\RestWithASPNET.Domain.csproj", "{56364460-8545-499F-8A7C-7AAE199C4F30}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.DTO", "..\RestWithASPNET.DTO\RestWithASPNET.DTO.csproj", "{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{56364460-8545-499F-8A7C-7AAE199C4F30}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56364460-8545-499F-8A7C-7AAE199C4F30}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56364460-8545-499F-8A7C-7AAE199C4F30}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

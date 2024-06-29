@@ -11,11 +11,14 @@ builder.Services.AddDbContext<Context>(opts => opts.UseSqlServer(builder.Configu
 
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<IGenericService, GenericRepository>();
 builder.Services.AddScoped<IPersonService, PersonRepository>();
 builder.Services.AddScoped<IBookService, BookRepository>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
