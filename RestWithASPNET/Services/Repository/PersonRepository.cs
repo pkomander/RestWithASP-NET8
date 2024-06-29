@@ -1,4 +1,6 @@
-﻿using RestWithASPNET.Model;
+﻿using Microsoft.EntityFrameworkCore;
+using RestWithASPNET.Data;
+using RestWithASPNET.Model;
 using RestWithASPNET.Services.Interface;
 
 namespace RestWithASPNET.Services.Repository
@@ -6,33 +8,96 @@ namespace RestWithASPNET.Services.Repository
     public class PersonRepository : IPersonService
     {
 
-        //public PersonRepository()
-        //{
+        private readonly Context _context;
 
-        //}
-        public Task<Person> Create(Person person)
+        public PersonRepository(Context context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<Person> FindById(long id)
+        public async Task<Person> Create(Person person)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Add(person);
+                await _context.SaveChangesAsync();
+
+                return person;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<List<Person>> FindAll()
+        public async Task<Person> FindById(long id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var person = await _context.Persons.FirstOrDefaultAsync(x => x.Id == id);
+
+                return person;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<Person> Update(Person person)
+        public async Task<List<Person>> FindAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                var persons = await _context.Persons.ToListAsync();
+
+                return persons;
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception(ex.Message);
+            }
         }
 
-        public Task<bool> Delete(long id)
+        public async Task<Person> Update(Person person)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var model = await _context.Persons.FirstOrDefaultAsync(x => x.Id == person.Id);
+
+                if (model == null)
+                    return null;
+
+                _context.Entry(model).CurrentValues.SetValues(person);
+                await _context.SaveChangesAsync();
+
+                return person;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<bool> Delete(long id)
+        {
+            try
+            {
+                var person = await _context.Persons.FirstOrDefaultAsync(x => x.Id == id);
+
+                if (person == null)
+                    return false;
+
+                _context.Persons.Remove(person);
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

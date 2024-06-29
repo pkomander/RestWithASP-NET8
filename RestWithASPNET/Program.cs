@@ -1,9 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using RestWithASPNET.Data;
 using RestWithASPNET.Services.Interface;
 using RestWithASPNET.Services.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<Context>(opts => opts.UseSqlServer(builder.Configuration.GetConnectionString("RestWithAspNetConnection")));
 
 builder.Services.AddControllers();
 

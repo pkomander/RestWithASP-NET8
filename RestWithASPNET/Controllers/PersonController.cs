@@ -90,7 +90,11 @@ namespace RestWithASPNET.Controllers
             try
             {
                 var retorno = await _personService.Delete(id);
-                return Ok(retorno);
+
+                if (retorno == false)
+                    return BadRequest("O Person não foi encontrado!");
+
+                return Ok("Person deletado com sucesso!");
             }
             catch (Exception ex)
             {
