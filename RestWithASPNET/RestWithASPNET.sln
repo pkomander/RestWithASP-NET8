@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET", "RestWithASPNET.csproj", "{059FE0A3-2A4A-4C11-BC2C-52C433382D4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestWithASPNET", "RestWithASPNET.csproj", "{059FE0A3-2A4A-4C11-BC2C-52C433382D4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.Repository", "..\RestWithASPNET.Repository\RestWithASPNET.Repository.csproj", "{110DBECD-FAED-4D1F-A0B5-EC47B503778C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestWithASPNET.Repository", "..\RestWithASPNET.Repository\RestWithASPNET.Repository.csproj", "{110DBECD-FAED-4D1F-A0B5-EC47B503778C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.Domain", "..\RestWithASPNET.Domain\RestWithASPNET.Domain.csproj", "{56364460-8545-499F-8A7C-7AAE199C4F30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestWithASPNET.Domain", "..\RestWithASPNET.Domain\RestWithASPNET.Domain.csproj", "{56364460-8545-499F-8A7C-7AAE199C4F30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.DTO", "..\RestWithASPNET.DTO\RestWithASPNET.DTO.csproj", "{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestWithASPNET.DTO", "..\RestWithASPNET.DTO\RestWithASPNET.DTO.csproj", "{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.Hypermedia", "..\RestWithASPNET.Hypermedia\RestWithASPNET.Hypermedia.csproj", "{562D48EB-1996-48A9-B38E-3259A248CB98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestWithASPNET.Common", "..\RestWithASPNET.Common\RestWithASPNET.Common.csproj", "{B7A74167-EEF6-4122-8A0B-6740C1C99E0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D1F6AC18-5C73-4E5C-A443-8B2ACE034CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{562D48EB-1996-48A9-B38E-3259A248CB98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{562D48EB-1996-48A9-B38E-3259A248CB98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{562D48EB-1996-48A9-B38E-3259A248CB98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{562D48EB-1996-48A9-B38E-3259A248CB98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A74167-EEF6-4122-8A0B-6740C1C99E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A74167-EEF6-4122-8A0B-6740C1C99E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A74167-EEF6-4122-8A0B-6740C1C99E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A74167-EEF6-4122-8A0B-6740C1C99E0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

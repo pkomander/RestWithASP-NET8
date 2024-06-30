@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RestWithASPNET.Domain;
 using RestWithASPNET.DTO.PersonDto;
+using RestWithASPNET.Hypermedia.Filters;
 using RestWithASPNET.Repository.Services.Interface;
 
 namespace RestWithASPNET.Controllers
@@ -19,6 +20,7 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpGet("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public async Task<IActionResult> GetById(long id)
         {
             try
@@ -39,6 +41,7 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpGet]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public async Task<IActionResult> GetAll()
         {
             try
@@ -52,6 +55,7 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpPost]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public async Task<IActionResult> Post([FromBody] CreatePersonDto personDto)
         {
             try
@@ -69,6 +73,7 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpPut("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public async Task<IActionResult> Update([FromBody] UpdatePersonDto personDto, int id)
         {
             try
@@ -86,6 +91,7 @@ namespace RestWithASPNET.Controllers
         }
 
         [HttpDelete("{id}")]
+        [TypeFilter(typeof(HyperMediaFilter))]
         public async Task<IActionResult> Delete(long id)
         {
             try

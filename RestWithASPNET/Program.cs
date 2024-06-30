@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Net.Http.Headers;
+using RestWithASPNET.Hypermedia.Enricher;
+using RestWithASPNET.Hypermedia.Filters;
 using RestWithASPNET.Repository.Data;
 using RestWithASPNET.Repository.Services.Interface;
 using RestWithASPNET.Repository.Services.Repository;
@@ -28,6 +30,12 @@ builder.Services.AddMvc(options =>
 })
 .AddXmlSerializerFormatters();
 
+//Adicionando referencia para execução do HATEOAS na biblioteca RestWithASPNET.Hypermedia
+var filterOptions = new HyperMediaFilterOptions();
+filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
+filterOptions.ContentResponseEnricherList.Add(new BookEnricher());
+builder.Services.AddSingleton(filterOptions);
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -42,5 +50,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
 
 app.Run();

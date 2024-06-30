@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RestWithASPNET.Common\RestWithASPNET.Common.csproj" />
     <ProjectReference Include="..\RestWithASPNET.Domain\RestWithASPNET.Domain.csproj" />
     <ProjectReference Include="..\RestWithASPNET.Repository\RestWithASPNET.Repository.csproj" />
   </ItemGroup>
