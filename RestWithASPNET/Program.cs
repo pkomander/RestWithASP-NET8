@@ -36,6 +36,8 @@ filterOptions.ContentResponseEnricherList.Add(new PersonEnricher());
 filterOptions.ContentResponseEnricherList.Add(new BookEnricher());
 builder.Services.AddSingleton(filterOptions);
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -48,6 +50,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors(x => x.AllowAnyHeader()
+   .AllowAnyMethod()
+   .AllowAnyOrigin());
 
 app.MapControllers();
 app.MapControllerRoute("DefaultApi", "{controller=values}/{id?}");
