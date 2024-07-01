@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\RestWithASPNET.Domain\RestWithASPNET.Domain.csproj" />
     <ProjectReference Include="..\RestWithASPNET.Hypermedia\RestWithASPNET.Hypermedia.csproj" />
   </ItemGroup>
 
