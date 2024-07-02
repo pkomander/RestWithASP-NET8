@@ -4,7 +4,7 @@ Projeto feito com a finalidade de aprimorar as habilidades e conceitos de Webser
 # Linguagens utilizadas
 ° Api construida utilizando C# .net. ASP NET CORE 8.
 
-° Pacotes Usados no projeto:AutoMapper,Microsoft.AspNetCore.Cors,Microsoft.EntityFrameWorkCore,Microsoft.EntityFrameWorkCore.SqlServer,Microsoft.EntityFrameWorkCore.Tools, Microsoft.EntityFrameWorkCore.Design.
+° Pacotes Usados no projetopper,Microsoft.AspNetCore.Cors,Microsoft.EntityFrameWorkCore,Microsoft.EntityFrameWorkCore.SqlServer,Microsoft.EntityFrameWorkCore.Tools, Microsoft.EntityFrameWorkCore.Design.
 
 ° Postman usado para teste de rotas.
 
@@ -17,4 +17,4 @@ Projeto feito com a finalidade de aprimorar as habilidades e conceitos de Webser
 
 ° Nas Controllers podera ser encontrada as Actions para chamada dos metodos http de consulta da Api.
 
-# Este Projeto faz parte de um um estudo pessoal.
+# Este Projeto e um projeto pessoal.
